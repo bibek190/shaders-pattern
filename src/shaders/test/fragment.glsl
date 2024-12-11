@@ -1,6 +1,10 @@
 
 varying vec2 vUv;
 
+float random(vec2 st){
+    return fract(sin(dot(st, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
 
 void main()
 {
@@ -83,14 +87,61 @@ void main()
     // // Pattern 19 
     // float strength = step(0.2,max(abs(vUv.x-0.5),abs(vUv.y-0.5)));
 
+    // // Pattern 20 
+    // float square1 = step(0.2,max(abs(vUv.x-0.5),abs(vUv.y-0.5)));
+    // float square2 = 1.0-step(0.25,max(abs(vUv.x-0.5),abs(vUv.y-0.5)));
+    // float strength = square1*square2;
+
+    // Pattern 21 
     // Pattern 20 
-    float square1 = step(0.2,max(abs(vUv.x-0.5),abs(vUv.y-0.5)));
-    float square2 = 1.0-step(0.25,max(abs(vUv.x-0.5),abs(vUv.y-0.5)));
-    float strength = square1*square2;
+    // float strength = floor(vUv.x*10.0)/10.0;
+
+    // Pattern 22
+    // float strength = floor(vUv.x*10.0)/10.0;
+    // strength *= floor(vUv.y*10.0)/10.0;
+
+    // Pattern 23
+    // float strength = random(vUv);
+
+    // Pattern24
+    // vec2 gridUv = vec2(
+    //     floor(vUv.x *10.0)/10.0,
+    //     floor(vUv.y *10.0)/10.0
+    // );
+    // float strength = random(gridUv);
+
+    // Pattern25
+    // vec2 gridUv = vec2(
+    //     floor(vUv.x *10.0)/10.0,
+    //     floor((vUv.y + vUv.x *0.5 )*10.0)/10.0
+    // );
+    // float strength = random(gridUv);
+
+    // Pattern26
+    // float strength = length(vUv);
+
+    // Pattern 27 
+    // float strength = distance(vUv,vec2(0.5));
+
+    // Pattern 28
+    // float strength = 1.0-distance(vUv,vec2(0.5));
+
+    // Pattern 29
+    // float strength = 0.015/distance(vUv,vec2(0.5));
+
+    // Pattern 30
+    vec2 lightUv = vec2(
+        vUv.x*0.2+0.4,
+        vUv.y
+    );
+    float strength = 0.015/distance(lightUv,vec2(0.5));
+
+    
 
 
 
 
+    
 
 
 
